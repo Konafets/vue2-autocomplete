@@ -442,7 +442,7 @@ if (false) {(function () {
     },
     activeClass: function activeClass(i) {
       var focusClass = i === this.focusList ? 'focus-list' : '';
-      return this.getClassName('input') + " " + focusClass;
+      return focusClass;
     },
     selectList: function selectList(data) {
       // Deep clone of the original object
