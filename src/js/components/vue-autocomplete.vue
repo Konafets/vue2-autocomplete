@@ -355,7 +355,13 @@
         let params = this.composeParams(val)
         // Init Ajax
         let ajax = new XMLHttpRequest();
-        ajax.open('GET', `${this.url}?${params}`, true);
+
+        let uri = `${this.url}?${params}`;
+        if (this.url.indexOf('?') > -1) {
+           uri = `${this.url}&${params}`;
+        }
+
+        ajax.open('GET', uri, true);
         this.composeHeader(ajax)
         // Callback Event
         ajax.addEventListener('progress', (data) => {

@@ -501,7 +501,13 @@ if (false) {(function () {
       var params = this.composeParams(val);
       // Init Ajax
       var ajax = new XMLHttpRequest();
-      ajax.open('GET', this.url + "?" + params, true);
+
+      var uri = this.url + "?" + params;
+      if (this.url.indexOf('?') > -1) {
+        uri = this.url + "&" + params;
+      }
+
+      ajax.open('GET', uri, true);
       this.composeHeader(ajax);
       // Callback Event
       ajax.addEventListener('progress', function (data) {
